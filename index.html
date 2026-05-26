@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vextro Lanka (Pvt) Ltd — Design to Completion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --stone: #c8b89a;
+    --stone-light: #e8dfd2;
+    --stone-pale: #f5f0ea;
+    --forest: #3d5c3a;
+    --forest-deep: #2a3f28;
+    --forest-light: #6b8a67;
+    --moss: #8fa685;
+    --bark: #5c4a35;
+    --cream: #faf7f3;
+    --ink: #1c1a17;
+    --ink-soft: #3a3630;
+    --warm-mid: #7a6e62;
+    --gold: #b09060;
+    --gold-light: #d4b88a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(250,247,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,184,154,0.3);
+    transition: all 0.3s ease;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 500; letter-spacing: 0.04em;
+    color: var(--forest-deep);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-soft); text-decoration: none; font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--forest); }
+  .nav-cta {
+    background: var(--forest);
+    color: var(--cream) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+  }
+  .nav-cta:hover { background: var(--forest-deep); color: var(--cream) !important; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 5rem 6rem 6rem;
+    background: var(--cream);
+    position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500;
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 2.2rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 36px; height: 1px; background: var(--gold);
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 5vw, 5.5rem);
+    font-weight: 300; line-height: 1.05;
+    color: var(--forest-deep);
+    margin-bottom: 1.8rem;
+    letter-spacing: -0.01em;
+  }
+  .hero-title em { font-style: italic; color: var(--bark); }
+  .hero-sub {
+    font-size: 1rem; line-height: 1.75; color: var(--warm-mid);
+    max-width: 420px; font-weight: 300; margin-bottom: 3rem;
+  }
+  .hero-actions { display: flex; align-items: center; gap: 2rem; }
+  .btn-primary {
+    background: var(--forest);
+    color: var(--cream);
+    padding: 0.9rem 2.2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+    border: none; cursor: pointer; text-decoration: none;
+    transition: background 0.25s;
+    border-radius: 2px; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--forest-deep); }
+  .btn-ghost {
+    font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--bark); text-decoration: none; font-weight: 400;
+    display: flex; align-items: center; gap: 0.5rem;
+    transition: gap 0.2s;
+  }
+  .btn-ghost:hover { gap: 0.8rem; }
+  .hero-right {
+    position: relative; overflow: hidden;
+  }
+  .hero-img-wrap {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #3d5c3a 0%, #2a3f28 40%, #5c4a35 100%);
+  }
+  .hero-img-wrap::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-img-content {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 3.5rem;
+  }
+  .hero-stat-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; border-top: 1px solid rgba(200,184,154,0.25);
+    padding-top: 2rem; margin-top: 2rem;
+  }
+  .hero-stat { padding: 0 1.5rem 0 0; }
+  .hero-stat:not(:last-child) {
+    border-right: 1px solid rgba(200,184,154,0.2);
+    margin-right: 1.5rem;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300;
+    color: var(--stone-light); line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--moss); font-weight: 400;
+  }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 300; font-style: italic;
+    color: var(--stone-light); line-height: 1.4; margin-bottom: 2.5rem;
+    max-width: 340px;
+  }
+
+  /* SECTION BASE */
+  section { padding: 7rem 6rem; }
+  .section-eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500;
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 1.4rem;
+  }
+  .section-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+    font-weight: 300; color: var(--forest-deep); line-height: 1.1;
+    margin-bottom: 1.2rem;
+  }
+  .section-title em { font-style: italic; color: var(--bark); }
+
+  /* SERVICES */
+  #services { background: var(--stone-pale); }
+  .services-header { max-width: 520px; margin-bottom: 4.5rem; }
+  .services-sub { color: var(--warm-mid); font-weight: 300; line-height: 1.75; font-size: 1rem; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px; background: var(--stone);
+    border: 1.5px solid var(--stone);
+  }
+  .service-card {
+    background: var(--cream);
+    padding: 2.8rem 2.5rem;
+    transition: background 0.3s;
+    position: relative; overflow: hidden;
+    cursor: default;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0;
+    width: 0; height: 3px;
+    background: var(--forest);
+    transition: width 0.4s ease;
+  }
+  .service-card:hover { background: var(--forest-deep); }
+  .service-card:hover::before { width: 100%; }
+  .service-card:hover .service-num,
+  .service-card:hover .service-name,
+  .service-card:hover .service-desc { color: var(--stone-light); }
+  .service-card:hover .service-icon { color: var(--moss); }
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem; color: var(--stone);
+    margin-bottom: 2rem; font-weight: 400; letter-spacing: 0.08em;
+    transition: color 0.3s;
+  }
+  .service-icon {
+    font-size: 2rem; margin-bottom: 1.2rem;
+    color: var(--forest-light);
+    transition: color 0.3s;
+    line-height: 1;
+  }
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400;
+    color: var(--forest-deep); margin-bottom: 0.9rem;
+    transition: color 0.3s; line-height: 1.2;
+  }
+  .service-desc {
+    font-size: 0.88rem; line-height: 1.7;
+    color: var(--warm-mid); font-weight: 300;
+    transition: color 0.3s;
+  }
+
+  /* ABOUT */
+  #about {
+    background: var(--cream);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative; aspect-ratio: 4/5;
+  }
+  .about-img-main {
+    width: 78%; height: 88%;
+    background: linear-gradient(160deg, var(--forest) 0%, var(--forest-deep) 60%, var(--bark) 100%);
+    border-radius: 2px;
+    position: relative;
+  }
+  .about-img-main::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    border-radius: 2px;
+  }
+  .about-img-accent {
+    position: absolute; bottom: 0; right: 0;
+    width: 55%; height: 42%;
+    background: var(--stone-light);
+    border: 6px solid var(--cream);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-accent-inner {
+    text-align: center;
+    padding: 1.5rem;
+  }
+  .about-accent-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem; font-weight: 300; color: var(--forest-deep); line-height: 1;
+  }
+  .about-accent-label {
+    font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--bark); margin-top: 0.3rem;
+  }
+  .about-badge {
+    position: absolute; top: 2rem; right: 0;
+    background: var(--forest); color: var(--stone-light);
+    padding: 0.7rem 1.2rem;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .about-content { }
+  .about-body {
+    color: var(--warm-mid); font-weight: 300; line-height: 1.8;
+    font-size: 0.98rem; margin-bottom: 2.5rem;
+  }
+  .about-pillars {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; margin-bottom: 2.5rem;
+  }
+  .pillar {
+    border-left: 2px solid var(--stone);
+    padding-left: 1.2rem;
+    transition: border-color 0.3s;
+  }
+  .pillar:hover { border-color: var(--forest); }
+  .pillar-title {
+    font-size: 0.88rem; font-weight: 500; color: var(--forest-deep);
+    margin-bottom: 0.25rem;
+  }
+  .pillar-desc {
+    font-size: 0.8rem; color: var(--warm-mid); font-weight: 300; line-height: 1.55;
+  }
+
+  /* PORTFOLIO */
+  #portfolio { background: var(--forest-deep); padding: 7rem 6rem; }
+  #portfolio .section-eyebrow { color: var(--gold-light); }
+  #portfolio .section-eyebrow::before { background: var(--gold-light); }
+  #portfolio .section-title { color: var(--stone-light); }
+  .portfolio-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+  .portfolio-header-text { max-width: 480px; }
+  .portfolio-sub { color: var(--moss); font-weight: 300; line-height: 1.7; }
+  .view-all {
+    font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold-light); text-decoration: none;
+    display: flex; align-items: center; gap: 0.5rem;
+    white-space: nowrap; transition: gap 0.2s;
+    flex-shrink: 0; margin-left: 3rem;
+  }
+  .view-all:hover { gap: 0.8rem; }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 260px 260px;
+    gap: 3px;
+  }
+  .pcard {
+    position: relative; overflow: hidden; cursor: pointer;
+    background: rgba(255,255,255,0.05);
+  }
+  .pcard:first-child { grid-row: 1 / 3; }
+  .pcard-bg {
+    position: absolute; inset: 0;
+    transition: transform 0.5s ease;
+  }
+  .pcard:hover .pcard-bg { transform: scale(1.05); }
+  .pc1 { background: linear-gradient(160deg, #4a6e46 0%, #2a3f28 100%); }
+  .pc2 { background: linear-gradient(160deg, #6b5a45 0%, #3d2e1e 100%); }
+  .pc3 { background: linear-gradient(160deg, #445c55 0%, #2a3f38 100%); }
+  .pc4 { background: linear-gradient(160deg, #5c4a35 0%, #3a2e20 100%); }
+  .pc5 { background: linear-gradient(160deg, #3d5c3a 0%, #243824 100%); }
+  .pcard-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(20,28,18,0.85) 0%, transparent 60%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 2rem;
+    opacity: 0.8; transition: opacity 0.3s;
+  }
+  .pcard:hover .pcard-overlay { opacity: 1; }
+  .pcard-type {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--moss); margin-bottom: 0.4rem;
+  }
+  .pcard-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 400; color: var(--stone-light);
+    line-height: 1.2;
+  }
+  .pcard-name-lg {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 300; color: var(--stone-light);
+    line-height: 1.15;
+  }
+  .pcard-loc {
+    font-size: 0.78rem; color: var(--moss); margin-top: 0.4rem;
+    display: flex; align-items: center; gap: 0.3rem;
+  }
+  /* Decorative SVG patterns inside cards */
+  .pcard-pattern {
+    position: absolute; inset: 0;
+    opacity: 0.08;
+  }
+
+  /* TEAM */
+  #team { background: var(--stone-pale); padding: 7rem 6rem; }
+  .team-header { max-width: 540px; margin-bottom: 4.5rem; }
+  .team-sub { color: var(--warm-mid); font-weight: 300; line-height: 1.75; }
+  .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+  .team-card { }
+  .team-avatar {
+    aspect-ratio: 3/4; margin-bottom: 1.4rem;
+    border-radius: 2px; overflow: hidden; position: relative;
+  }
+  .avatar-bg {
+    width: 100%; height: 100%;
+    display: flex; align-items: flex-end; justify-content: flex-start;
+    padding: 1.2rem;
+  }
+  .av1 { background: linear-gradient(160deg, #4a6e46, #2a3f28); }
+  .av2 { background: linear-gradient(160deg, #6b5a45, #3d2e1e); }
+  .av3 { background: linear-gradient(160deg, #3d5c3a, #1e3020); }
+  .av4 { background: linear-gradient(160deg, #7a6e62, #4a3e35); }
+  .avatar-initials {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; color: rgba(232,223,210,0.35);
+    line-height: 1;
+  }
+  .team-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 400; color: var(--forest-deep);
+    margin-bottom: 0.25rem;
+  }
+  .team-role {
+    font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400; margin-bottom: 0.6rem;
+  }
+  .team-bio {
+    font-size: 0.83rem; line-height: 1.65; color: var(--warm-mid); font-weight: 300;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--ink);
+    padding: 7rem 6rem;
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 7rem; align-items: start;
+  }
+  #contact .section-eyebrow { color: var(--gold-light); }
+  #contact .section-eyebrow::before { background: var(--gold-light); }
+  #contact .section-title { color: var(--stone-light); }
+  .contact-sub {
+    color: rgba(200,184,154,0.6); font-weight: 300; line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(200,184,154,0.12);
+  }
+  .contact-icon {
+    width: 38px; height: 38px;
+    border: 1px solid rgba(200,184,154,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; color: var(--gold-light); font-size: 0.9rem;
+  }
+  .contact-item-label {
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(200,184,154,0.4); margin-bottom: 0.2rem;
+  }
+  .contact-item-val {
+    font-size: 0.92rem; color: var(--stone-light); font-weight: 300;
+  }
+  /* Form */
+  .contact-form { display: flex; flex-direction: column; gap: 1.4rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-label {
+    font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(200,184,154,0.5); font-weight: 400;
+  }
+  .form-input {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(200,184,154,0.15);
+    color: var(--stone-light);
+    padding: 0.85rem 1rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 300;
+    border-radius: 2px; outline: none; width: 100%;
+    transition: border-color 0.2s;
+  }
+  .form-input::placeholder { color: rgba(200,184,154,0.25); }
+  .form-input:focus { border-color: rgba(200,184,154,0.4); }
+  textarea.form-input { min-height: 130px; resize: vertical; }
+  .form-select {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(200,184,154,0.15);
+    color: var(--stone-light);
+    padding: 0.85rem 1rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 300;
+    border-radius: 2px; outline: none; width: 100%;
+    appearance: none; cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .form-select option { background: #1c1a17; }
+  .form-select:focus { border-color: rgba(200,184,154,0.4); }
+  .btn-submit {
+    background: var(--forest);
+    color: var(--stone-light);
+    padding: 1rem 2.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase;
+    border: none; cursor: pointer; border-radius: 2px;
+    transition: background 0.25s; align-self: flex-start;
+    font-weight: 400;
+  }
+  .btn-submit:hover { background: var(--forest-light); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink-soft);
+    padding: 2.5rem 6rem;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(200,184,154,0.08);
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 500;
+    color: rgba(200,184,154,0.7); letter-spacing: 0.04em;
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-copy {
+    font-size: 0.75rem; color: rgba(200,184,154,0.3); font-weight: 300;
+    letter-spacing: 0.04em;
+  }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a {
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(200,184,154,0.35); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold-light); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .hero-left > * { animation: fadeUp 0.9s ease both; }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero-title { animation-delay: 0.2s; }
+  .hero-sub { animation-delay: 0.32s; }
+  .hero-actions { animation-delay: 0.44s; }
+  .hero-img-content { animation: fadeIn 1.2s ease 0.3s both; }
+
+  /* Decorative line element */
+  .decor-line {
+    width: 1px; height: 60px;
+    background: linear-gradient(to bottom, var(--stone), transparent);
+    margin: 0 auto 3rem;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--stone); border-radius: 99px; }
+
+  /* Responsive basics */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 7rem 2.5rem 4rem; }
+    .hero-right { height: 340px; }
+    section { padding: 5rem 2.5rem; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    #about { grid-template-columns: 1fr; padding: 5rem 2.5rem; }
+    .about-visual { display: none; }
+    #portfolio { padding: 5rem 2.5rem; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .pcard:first-child { grid-row: auto; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    #contact { grid-template-columns: 1fr; gap: 4rem; padding: 5rem 2.5rem; }
+    footer { flex-direction: column; gap: 1.2rem; padding: 2rem 2.5rem; text-align: center; }
+    .portfolio-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Vextro <span>Lanka</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Projects</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact" class="nav-cta">Start a Project</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Design to Completion</p>
+    <h1 class="hero-title">We Build <em>Spaces</em><br>That Endure</h1>
+    <p class="hero-sub">Vextro Lanka delivers intelligent, nature-informed construction — from initial concept through final handover. Precision in every layer, beauty in every detail.</p>
+    <div class="hero-actions">
+      <a href="#portfolio" class="btn-primary">Explore Our Work</a>
+      <a href="#contact" class="btn-ghost">Begin Your Project →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.12" viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="0" x2="600" y2="800" stroke="white" stroke-width="0.5"/>
+        <line x1="200" y1="0" x2="800" y2="600" stroke="white" stroke-width="0.5"/>
+        <line x1="0" y1="200" x2="400" y2="600" stroke="white" stroke-width="0.5"/>
+        <rect x="80" y="120" width="200" height="280" fill="none" stroke="white" stroke-width="0.5"/>
+        <rect x="320" y="200" width="160" height="220" fill="none" stroke="white" stroke-width="0.5"/>
+        <circle cx="300" cy="400" r="120" fill="none" stroke="white" stroke-width="0.5"/>
+        <line x1="0" y1="400" x2="600" y2="400" stroke="white" stroke-width="0.3"/>
+        <line x1="300" y1="0" x2="300" y2="800" stroke="white" stroke-width="0.3"/>
+      </svg>
+    </div>
+    <div class="hero-img-content">
+      <p class="hero-tagline">"Architecture is the learned game, correct and magnificent, of forms assembled in light."</p>
+      <div class="hero-stat-row">
+        <div class="hero-stat">
+          <div class="stat-num">14+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">280</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <p class="section-eyebrow">What We Offer</p>
+    <h2 class="section-title">Full-Spectrum <em>Construction</em> Expertise</h2>
+    <p class="services-sub">From the first sketch to the final key handover, every phase is managed by specialists who care deeply about craft, sustainability, and lasting value.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-icon">⬡</div>
+      <h3 class="service-name">Architecture & Design</h3>
+      <p class="service-desc">Concept development, master planning, and detailed design with a strong connection to environment and client vision.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-icon">◈</div>
+      <h3 class="service-name">Structural Engineering</h3>
+      <p class="service-desc">Rigorous structural analysis and safe, efficient construction systems designed for Sri Lanka's climate and terrain.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-icon">◎</div>
+      <h3 class="service-name">Interior Design</h3>
+      <p class="service-desc">Harmonious interiors that reflect natural materials, bespoke joinery, and thoughtful space planning for how you actually live.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-icon">⊞</div>
+      <h3 class="service-name">Project Management</h3>
+      <p class="service-desc">End-to-end oversight of timelines, budgets, contractors and quality control — so you never have to worry.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-icon">◬</div>
+      <h3 class="service-name">Renovation & Retrofitting</h3>
+      <p class="service-desc">Breathing new life into existing structures with sensitive interventions that honour what was while building what's needed.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-icon">⊛</div>
+      <h3 class="service-name">Smart Home Systems</h3>
+      <p class="service-desc">Seamless integration of lighting, climate, security, and audio — elegant technology invisible in daily life.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual">
+    <div class="about-img-main">
+      <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.15" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="60" width="180" height="240" fill="none" stroke="white" stroke-width="0.8"/>
+        <rect x="160" y="180" width="180" height="240" fill="none" stroke="white" stroke-width="0.8"/>
+        <line x1="40" y1="60" x2="220" y2="60" stroke="white" stroke-width="0.5"/>
+        <line x1="40" y1="300" x2="340" y2="420" stroke="white" stroke-width="0.4"/>
+        <circle cx="200" cy="250" r="80" fill="none" stroke="white" stroke-width="0.5"/>
+      </svg>
+    </div>
+    <div class="about-img-accent">
+      <div class="about-accent-inner">
+        <div class="about-accent-num">14+</div>
+        <div class="about-accent-label">Years of Excellence</div>
+      </div>
+    </div>
+    <div class="about-badge">Est. 2010 · Colombo, Sri Lanka</div>
+  </div>
+  <div class="about-content">
+    <p class="section-eyebrow">Who We Are</p>
+    <h2 class="section-title">Rooted in Sri Lanka,<br><em>Built to Last</em></h2>
+    <p class="about-body">Vextro Lanka (Pvt) Ltd was founded on a belief that construction in Sri Lanka deserves the same precision, material integrity, and design intelligence seen anywhere in the world — with the added richness of local craft and tropical sensibility. We are a multidisciplinary team of architects, engineers, and project managers who guide clients from the first napkin sketch through completion.</p>
+    <p class="about-body">We work on residences, commercial buildings, hospitality and institutional projects across the island, always treating each commission as singular.</p>
+    <div class="about-pillars">
+      <div class="pillar">
+        <div class="pillar-title">Sustainability First</div>
+        <div class="pillar-desc">Passive cooling, local materials, and low-impact systems are standard, not optional.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Transparency</div>
+        <div class="pillar-desc">Open-book budgeting and real-time project tracking. No surprises.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Craftsmanship</div>
+        <div class="pillar-desc">We partner with the finest local tradespeople who share our standards.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Lifetime Relationship</div>
+        <div class="pillar-desc">Our service extends beyond handover — we remain your trusted building partner.</div>
+      </div>
+    </div>
+    <a href="#contact" class="btn-primary">Discuss Your Project</a>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-header">
+    <div class="portfolio-header-text">
+      <p class="section-eyebrow">Selected Work</p>
+      <h2 class="section-title">Projects <em>We're Proud Of</em></h2>
+      <p class="portfolio-sub">A selection of recent commissions across residential, commercial, and hospitality sectors throughout Sri Lanka.</p>
+    </div>
+    <a href="#contact" class="view-all">View All Projects →</a>
+  </div>
+  <div class="portfolio-grid">
+    <div class="pcard">
+      <div class="pcard-bg pc1">
+        <svg class="pcard-pattern" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="0" x2="600" y2="600" stroke="white" stroke-width="1"/>
+          <rect x="80" y="80" width="300" height="400" fill="none" stroke="white" stroke-width="1.5"/>
+          <rect x="200" y="150" width="200" height="280" fill="none" stroke="white" stroke-width="1"/>
+          <circle cx="300" cy="300" r="150" fill="none" stroke="white" stroke-width="0.8"/>
+        </svg>
+      </div>
+      <div class="pcard-overlay">
+        <div class="pcard-type">Residential · 2024</div>
+        <div class="pcard-name-lg">The Kandy<br>Hill Residence</div>
+        <div class="pcard-loc">📍 Kandy, Central Province</div>
+      </div>
+    </div>
+    <div class="pcard">
+      <div class="pcard-bg pc2">
+        <svg class="pcard-pattern" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="260" height="220" fill="none" stroke="white" stroke-width="1"/>
+          <line x1="0" y1="130" x2="300" y2="130" stroke="white" stroke-width="0.8"/>
+        </svg>
+      </div>
+      <div class="pcard-overlay">
+        <div class="pcard-type">Commercial · 2023</div>
+        <div class="pcard-name">Colombo Trade Centre Annex</div>
+        <div class="pcard-loc">📍 Colombo 03</div>
+      </div>
+    </div>
+    <div class="pcard">
+      <div class="pcard-bg pc3">
+        <svg class="pcard-pattern" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="150" cy="130" r="100" fill="none" stroke="white" stroke-width="1"/>
+          <line x1="150" y1="30" x2="150" y2="230" stroke="white" stroke-width="0.8"/>
+          <line x1="50" y1="130" x2="250" y2="130" stroke="white" stroke-width="0.8"/>
+        </svg>
+      </div>
+      <div class="pcard-overlay">
+        <div class="pcard-type">Hospitality · 2023</div>
+        <div class="pcard-name">Ella Forest Retreat</div>
+        <div class="pcard-loc">📍 Ella, Uva Province</div>
+      </div>
+    </div>
+    <div class="pcard">
+      <div class="pcard-bg pc4">
+        <svg class="pcard-pattern" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+          <rect x="40" y="40" width="220" height="180" fill="none" stroke="white" stroke-width="1"/>
+          <rect x="80" y="80" width="140" height="100" fill="none" stroke="white" stroke-width="0.8"/>
+        </svg>
+      </div>
+      <div class="pcard-overlay">
+        <div class="pcard-type">Interior · 2024</div>
+        <div class="pcard-name">Galle Fort Boutique</div>
+        <div class="pcard-loc">📍 Galle, Southern Province</div>
+      </div>
+    </div>
+    <div class="pcard">
+      <div class="pcard-bg pc5">
+        <svg class="pcard-pattern" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="0" x2="300" y2="260" stroke="white" stroke-width="0.8"/>
+          <line x1="300" y1="0" x2="0" y2="260" stroke="white" stroke-width="0.8"/>
+          <circle cx="150" cy="130" r="60" fill="none" stroke="white" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="pcard-overlay">
+        <div class="pcard-type">Renovation · 2022</div>
+        <div class="pcard-name">Negombo Heritage Home</div>
+        <div class="pcard-loc">📍 Negombo, Western Province</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="team-header">
+    <p class="section-eyebrow">Our People</p>
+    <h2 class="section-title">The Minds <em>Behind the Work</em></h2>
+    <p class="team-sub">A senior team of architects, engineers and designers who bring deep expertise and genuine care to every commission.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">
+        <div class="avatar-bg av1"><span class="avatar-initials">RP</span></div>
+      </div>
+      <div class="team-role">Founder & Principal Architect</div>
+      <h3 class="team-name">Rajiv Perera</h3>
+      <p class="team-bio">15 years leading complex residential and commercial projects. Fellow of the SLIA. Studied at University of Moratuwa and TU Delft.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <div class="avatar-bg av2"><span class="avatar-initials">NS</span></div>
+      </div>
+      <div class="team-role">Head of Structural Engineering</div>
+      <h3 class="team-name">Nilmini Silva</h3>
+      <p class="team-bio">Specialist in seismic design and sustainable structural systems. Oversees all engineering documentation and site verification.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <div class="avatar-bg av3"><span class="avatar-initials">DW</span></div>
+      </div>
+      <div class="team-role">Director of Interiors</div>
+      <h3 class="team-name">Dinesh Wickrama</h3>
+      <p class="team-bio">Former designer at WOHA Singapore, Dinesh brings a refined tropical modernism to every interior at Vextro Lanka.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <div class="avatar-bg av4"><span class="avatar-initials">AF</span></div>
+      </div>
+      <div class="team-role">Senior Project Manager</div>
+      <h3 class="team-name">Amara Fernando</h3>
+      <p class="team-bio">Delivers projects on time and on budget through meticulous planning, contractor management, and open client communication.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-left">
+    <p class="section-eyebrow">Get in Touch</p>
+    <h2 class="section-title">Let's Build<br><em>Something Together</em></h2>
+    <p class="contact-sub">Tell us about your project. Whether you're starting from land or land title, we'll guide you from first consultation to final handover.</p>
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-item-label">Our Studio</div>
+          <div class="contact-item-val">42 Gregorys Road, Cinnamon Gardens, Colombo 07</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-item-label">Phone</div>
+          <div class="contact-item-val">+94 11 456 7890</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-item-label">Email</div>
+          <div class="contact-item-val">hello@vextrolanka.lk</div>
+        </div>
+      </div>
+      <div class="contact-item" style="border-bottom:none;">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <div class="contact-item-label">Studio Hours</div>
+          <div class="contact-item-val">Monday – Friday, 8:30am – 5:30pm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-right">
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-input" placeholder="Kamal">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-input" placeholder="Jayawardena">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input type="tel" class="form-input" placeholder="+94 77 123 4567">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Service Required</label>
+        <select class="form-select">
+          <option value="">Select a service…</option>
+          <option>Architecture & Design</option>
+          <option>Structural Engineering</option>
+          <option>Interior Design</option>
+          <option>Project Management</option>
+          <option>Renovation & Retrofitting</option>
+          <option>Smart Home Systems</option>
+          <option>Full Design-to-Completion</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Project Location</label>
+        <input type="text" class="form-input" placeholder="Colombo, Kandy, Galle…">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tell Us About Your Project</label>
+        <textarea class="form-input" placeholder="Briefly describe your vision, timeline, and approximate budget…"></textarea>
+      </div>
+      <button class="btn-submit">Send Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Vextro <span>Lanka</span> (Pvt) Ltd</div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#portfolio">Projects</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Vextro Lanka (Pvt) Ltd. All rights reserved.</div>
+</footer>
+
+<script>
+  // Smooth nav transparency
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.padding = '1rem 4rem';
+      nav.style.boxShadow = '0 2px 24px rgba(28,26,23,0.08)';
+    } else {
+      nav.style.padding = '1.4rem 4rem';
+      nav.style.boxShadow = 'none';
+    }
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.service-card, .pcard, .team-card, .pillar').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  // Form submit
+  document.querySelector('.btn-submit').addEventListener('click', function() {
+    this.textContent = 'Enquiry Sent ✓';
+    this.style.background = '#3d5c3a';
+    this.disabled = true;
+  });
+</script>
+
+</body>
+</html>
